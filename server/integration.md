@@ -1518,6 +1518,8 @@ Step j:  create Dockerfile in above command prompt in ububtu ie in power shell
 
 
 Step k:  Write the following data in Dockerfile and click ctrl+o  Enter and then ctrl-x
+               FROM nginx:alpine
+			   COPY . /usr/share/nginx/html
 
 
 
@@ -1732,7 +1734,10 @@ Under default branch section click on the icon shown and you’re your master br
 
 
 
+nano Dockerfile
 
+FROM tomcat:9-jdk11
+COPY target/*.war /usr/local/tomcat/webapps
 
 
 
@@ -1814,6 +1819,7 @@ Terminate your instance
 
 
 End your lab
+
 
 
 
