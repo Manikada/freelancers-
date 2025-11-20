@@ -6,6 +6,71 @@
     <title>Simple Freelance Job Board</title>
   </head>
   <body>
+    
+pipeline {
+agent any  // Agent: Defines the machine (or slave) that runs the tasks 
+   tools{
+        maven 'MAVEN-HOME'
+    }
+    stages {         //The script is divided into stages, each representing a specific step, like building,
+        stage('git repo & clean') {
+            steps {
+                //bat "rmdir  /s /q mavenjava"
+                bat "git clone provide your github link"
+                bat "mvn clean -f mavenjava"
+            }
+        }
+        stage('install') {
+            steps {
+                bat "mvn install -f mavenjava" #project name#
+            }
+        }
+        stage('test') {
+            steps {
+ bat "mvn test -f mavenjava"
+            }
+        }
+        stage('package') {
+            steps {
+                bat "mvn package -f mavenjava"
+            }
+        }
+    }
+}
+
+
+minikube start --driver=hyperv
+
+minikube start --driver=docker
+minikube start
+kubectl create deployment mynginx --image=nginx
+
+kubectl expose deployment mynginx --type=NodePort --port=80 --target-port=80
+kubectl scale deployment mynginx --replicas=4
+kubectl get service myngnix
+kubectl port-forward svc/mynginx 8081:80
+
+kubectl delete deployment mynginx
+kubectl delete service mynginx
+
+
+
+
+
+Pull the Nagios Docker Image
+Open a terminal and run:
+
+docker pull jasonrivers/nagios:latest
+
+docker run --name nagiosdemo -p 8888:80 jasonrivers/nagios:latest
+docker stop nagiosdemo
+docker rm nagiosdemo
+
+
+
+ngrok config add-authtoken 34ejJvRYKqtjvBUEYEnxudIbpb7_33i6pYx8BJ2cZ1TpwasWq
+ngrok http 8080
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
