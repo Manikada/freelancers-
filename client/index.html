@@ -71,6 +71,9 @@ docker rm nagiosdemo
 ngrok config add-authtoken 34ejJvRYKqtjvBUEYEnxudIbpb7_33i6pYx8BJ2cZ1TpwasWq
 ngrok http 8080
 
+
+    FROM tomcat:9-jdk11
+    COPY **/*.war /usr/local/tomcat/webapps/
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
