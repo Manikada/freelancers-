@@ -100,6 +100,8 @@ ngrok config add-authtoken 34ejJvRYKqtjvBUEYEnxudIbpb7_33i6pYx8BJ2cZ1TpwasWq
 ngrok http 8080
 
 
+icacls "C:\path\to\your-key.pem" /inheritance:r
+icacls "C:\path\to\your-key.pem" /grant:r "$($env:USERNAME):(R)"
 
     
     Inside it, create a file docker-compose.yml with the following content:
