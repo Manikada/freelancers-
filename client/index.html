@@ -99,8 +99,38 @@ docker ps -a
 ngrok config add-authtoken 34ejJvRYKqtjvBUEYEnxudIbpb7_33i6pYx8BJ2cZ1TpwasWq
 ngrok http 8080
 
-    
 
+
+    
+    Inside it, create a file docker-compose.yml with the following content:
+ 
+version: "3.9"
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+ 
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: demo_db
+ 
+II. Run the setup:
+ 
+docker compose up -d
+ 
+III. Open your browser and visit: http://localhost:8080.
+ 
+IV. Expected Output:
+ 
+Nginx welcome page is displayed.
+db container runs in the background.
+
+
+    
 
     FROM tomcat:9-jdk11
     COPY **/*.war /usr/local/tomcat/webapps/
