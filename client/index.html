@@ -100,8 +100,11 @@ ngrok config add-authtoken 34ejJvRYKqtjvBUEYEnxudIbpb7_33i6pYx8BJ2cZ1TpwasWq
 ngrok http 8080
 
 
+    
 icacls "C:\path\to\your-key.pem" /inheritance:r
 icacls "C:\path\to\your-key.pem" /grant:r "$($env:USERNAME):(R)"
+
+
 
     
     Inside it, create a file docker-compose.yml with the following content:
@@ -133,6 +136,11 @@ db container runs in the background.
 
 
     
+sudo apt update 
+    sudo apt-get install docker.io
+    
+    sudo docker build -t mymaven .
+    sudo docker run -d -p 9090:8080 mymaven
 
     FROM tomcat:9-jdk11
     COPY **/*.war /usr/local/tomcat/webapps/
