@@ -61,15 +61,45 @@ Pull the Nagios Docker Image
 Open a terminal and run:
 
 docker pull jasonrivers/nagios:latest
-
 docker run --name nagiosdemo -p 8888:80 jasonrivers/nagios:latest
 docker stop nagiosdemo
 docker rm nagiosdemo
+
+    
+    docker pull redis
+docker run --name my-redis -d redis
+docker exec -it my-redis redis-cli
+SET name "Alice"
+GET name
+docker stop my-redis
+docker rm my-redis 
+
+    
+
+ Create a folder like C:\DockerProjects\Redis.
+o Open Git Bash and navigate to the folder:
+cd /c/DockerProjects/Redis
+
+    FROM redis:latest
+CMD ["redis-server"]
+
+     docker build -t redisnew  .
+docker run --name myredisnew -d redisnew
+docker ps
+docker stop myredisnew
+docker login
+docker ps -a
+ docker commit 0e993d2009a1 budarajumadhurika/redis1 
+// Note 0e993d2009a1 is container id of myredisnew
+ docker push budarajumadhurika/redis1
+ docker rm 0e993d2009a1
 
 
 
 ngrok config add-authtoken 34ejJvRYKqtjvBUEYEnxudIbpb7_33i6pYx8BJ2cZ1TpwasWq
 ngrok http 8080
+
+    
 
 
     FROM tomcat:9-jdk11
